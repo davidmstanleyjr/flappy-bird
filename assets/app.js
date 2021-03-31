@@ -15,4 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	let timerId = setInterval(startGame, 20);
+
+	//controls what keys can make the bird jump
+
+	//makes the bird jump
+	function jump() {
+		if (birdBottom < 500) birdBottom += 50;
+		bird.style.bottom = birdBottom + 'px';
+		console.log(birdBottom);
+	}
+
+	document.addEventListener('keyup', jump);
 });
