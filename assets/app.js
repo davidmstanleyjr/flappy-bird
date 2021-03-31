@@ -16,7 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	let timerId = setInterval(startGame, 20);
 
-	//controls what keys can make the bird jump
+	//controls what keys can make the bird jump. 32 is the code for spacebar.
+	function control(e) {
+		if (e.keyCode === 32) {
+			jump();
+		}
+	}
 
 	//makes the bird jump
 	function jump() {
@@ -25,5 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
 		console.log(birdBottom);
 	}
 
-	document.addEventListener('keyup', jump);
+	document.addEventListener('keyup', control);
+
+	//logic for obstacles
+	function generateObstacle() {
+		const obstacle = document.createElement('div');
+		obstacle.classList.add('obstacle');
+		gameDisplay.appendChild(obstacle);
+	}
+
+	generateObstacle();
 });
